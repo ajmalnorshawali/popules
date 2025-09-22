@@ -113,9 +113,9 @@ const closeModal = () => {
                         </NuxtLink>
                     </li>
                     <li>
-                        <NuxtLink to="/marketplace" :class="{'text-violet-700 rounded-lg': route.path === '/marketplace'}" class="flex items-center py-2 px-3">
+                        <NuxtLink to="/explore" :class="{'text-violet-700 rounded-lg': route.path === '/explore'}" class="flex items-center py-2 px-3">
                             <LucideNewspaper :size="20" class="mr-1" />
-                            <span>Marketplace</span>
+                            <span>Explore</span>
                         </NuxtLink>
                     </li>
                     <li v-if="route.meta.isAuthenticated">

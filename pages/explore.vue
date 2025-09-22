@@ -18,7 +18,7 @@ const items = ref<FeedItem[]>([])
 const isLoading = ref(false);
 const isModalOpen = ref(false)
 const selectedCard = ref<FeedItem | null>(null)
-const categories = ref([])   // unique categories
+const categories = ref<string[]>([])   // unique categories
 const selectedCategory = ref('') // bound to <select>
 const displayLimit = ref(15); // New ref for display limit
 
@@ -30,7 +30,7 @@ const getData = async () => {
         items.value = response.data.data
 
         // Extract categories, flatten, and remove duplicates
-        const allCategories = items.value.map(item => item.category).flat()
+        const allCategories = items.value.map(item => item.category).reduce((acc, val) => acc.concat(val), []);
         categories.value = [...new Set(allCategories)]
     } catch (error) {
         console.error('Fetch error:', error)
